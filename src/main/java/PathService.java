@@ -1,6 +1,9 @@
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
 public class PathService {
-  // Co tinh dung dau \\ de sai doi voi linux va macos
   public String getProjectFilePath(String folder, String file) {
-    return folder + "\\" + file;
+    Path path = Paths.get(folder, file);
+    return path.toString();
   }
 }
