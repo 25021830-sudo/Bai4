@@ -2,9 +2,9 @@ name: Multi-OS Test Matrix
 
 on:
   push:
-    branches: [ main ]
+    branches: [ master ]
   pull_request:
-    branches: [ main ]
+    branches: [ master ]
 
 jobs:
   test-on-matrix:
