@@ -1,12 +1,16 @@
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import java.io.File;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class PathServiceTest {
   @Test
-  void testFilePath() {
+  void testFilePathCrossPlatform() {
     PathService service = new PathService();
     String result = service.getProjectFilePath("data", "config.txt");
-    // Bài test này sẽ FAIL trên Ubuntu và macOS vì chúng dùng dấu /
-    assertTrue(result.contains("\\"));
+
+    // Kỳ vọng kết quả phải khớp với định dạng của hệ điều hành hiện tại
+    String expected = "data" + File.separator + "config.txt";
+
+    assertEquals(expected, result, "Đường dẫn không tương thích với OS hiện tại!");
   }
 }
